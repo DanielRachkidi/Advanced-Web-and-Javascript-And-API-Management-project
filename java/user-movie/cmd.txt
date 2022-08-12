@@ -1,0 +1,1 @@
+docker run -d --restart unless-stopped -v postgresqldata:/data/db -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=password -e POSTGRES_DB=dev --name postgres -p 5532:5432 postgres:14
