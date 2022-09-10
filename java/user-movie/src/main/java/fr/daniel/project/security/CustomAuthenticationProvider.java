@@ -1,12 +1,10 @@
 package fr.daniel.project.security;
 
-import fr.daniel.project.user.UserService;
 import fr.daniel.project.datamodel.User;
 import fr.daniel.project.dto.Role;
 import fr.daniel.project.dto.UserPrincipal;
+import fr.daniel.project.user.UserService;
 import java.util.List;
-import java.util.Optional;
-import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -27,9 +25,9 @@ public class CustomAuthenticationProvider
   {
     String name = authentication.getName();
     String password = authentication.getCredentials().toString();
-    String hashed = DigestUtils.sha256Hex(Optional.ofNullable(password).orElse(""));
+    //    String hashed = DigestUtils.sha256Hex(Optional.ofNullable(password).orElse(""));
     
-    List<User> userList = service.findByCredentials(name, hashed);
+    List<User> userList = service.findByCredentials(name, password);
     
     if (!userList.isEmpty())
     {

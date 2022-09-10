@@ -16,9 +16,14 @@ public class UserService
   
   public User signUp(User user)
   {
+    
     if (repository.findBy(user.getUsername(), user.getEmail()).isEmpty())
     {
       return repository.save(user);
+    }
+    else if (user.getPassword().isEmpty())
+    {
+      return null;
     }
     else
     {

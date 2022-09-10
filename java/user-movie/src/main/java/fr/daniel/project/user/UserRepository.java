@@ -15,9 +15,11 @@ public interface UserRepository
   List<User> findByCredentials(@Param("username") String username, @Param("password") String password);
   
   @Query(value = "select r from User r where r.username = :username or r.email = :email")
-  List<User> findBy(@Param("username") String username, @Param("email") String email);
-
+  List<User> findBy(
+    @Param("username") String username,
+    @Param("email") String email
+  );
+  
   @Query(value = "select r from User r where r.username = :username")
   List<User> findByUsername(@Param("username") String username);
-
 }

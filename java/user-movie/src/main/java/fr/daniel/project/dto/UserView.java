@@ -12,10 +12,13 @@ public class UserView
   private String username;
   private String email;
   
+  private String password;
+  
   public UserView(User user)
   {
     this.id = user.getId();
     this.username = user.getUsername();
     this.email = user.getEmail();
+    this.password = user.getPassword();
   }
 }

@@ -13,9 +13,9 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.commons.codec.digest.DigestUtils;
 
 @Entity
 @Table(schema = "public", name = "users")
@@ -30,12 +30,15 @@ public class User
   private Long id;
   
   @Column(name = "username", nullable = false, unique = true, length = 30)
+  @Size(min = 6, message = "username should have min 6 characters")
   private String username;
   
   @Column(name = "email", nullable = false, unique = true, length = 50)
+  @Size(min = 6, message = "email should have min 6 characters")
   private String email;
   
   @Column(name = "password", nullable = false)
+  @Size(min = 6, message = "Password should have min 6 characters")
   private String password;
   
   @OneToOne
@@ -54,6 +57,8 @@ public class User
     {
       throw new PersistenceException("Password must not be null");
     }
-    password = DigestUtils.sha256Hex(password);
+    // even if it's null the program will take it  because it will be replaced by hash
+    
+    //    password = DigestUtils.sha256Hex(password);
   }
 }
