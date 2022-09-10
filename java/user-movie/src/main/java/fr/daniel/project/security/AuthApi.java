@@ -69,13 +69,10 @@ public class AuthApi
       return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
     }
   }
-
-//  @PostMapping("logout")
-//  public ResponseEntity<UserPrincipal> logout(@RequestBody @Valid AuthRequest request){
-//
-//    return null;
-//  }
-
-
-
+  
+  //  @PostMapping("logout")
+  //  public ResponseEntity<UserPrincipal> logout(@RequestBody @Valid AuthRequest request){
+  //
+  //    return null;
+  //  }
 }

@@ -1,12 +1,0 @@
-
-E
-java:S1068
-"*Remove this unused "userId" private field.(Â—‹¼úÿÿÿÿ
-H
-java:S1068"-Remove this unused "firstname" private field.(ŒøÂÆşÿÿÿÿ
-G
-java:S1068",Remove this unused "lastname" private field.(Ç—ùèüÿÿÿÿ
-H
-java:S1068"-Remove this unused "birthdate" private field.(û¦¨¤ûÿÿÿÿ
-@
-java:S1068"*Remove this unused "gender" private field.(ÀÄŒ
