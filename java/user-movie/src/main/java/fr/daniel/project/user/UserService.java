@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import javax.persistence.EntityExistsException;
+import javax.persistence.PersistenceException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,13 +18,14 @@ public class UserService
   public User signUp(User user)
   {
     
-    if (repository.findBy(user.getUsername(), user.getEmail()).isEmpty())
+    if (repository.findBy(user.getUsername(), user.getEmail(), user.getPassword()).isEmpty())
     {
+      
       return repository.save(user);
     }
-    else if (user.getPassword().isEmpty())
+    if (user.getPassword().isEmpty())
     {
-      return null;
+      throw new PersistenceException("Password must not be null");
     }
     else
     {

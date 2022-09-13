@@ -30,11 +30,11 @@ public class User
   private Long id;
   
   @Column(name = "username", nullable = false, unique = true, length = 30)
-  @Size(min = 6, message = "username should have min 6 characters")
+  @Size(min = 3, message = "username should have min 6 characters")
   private String username;
   
   @Column(name = "email", nullable = false, unique = true, length = 50)
-  @Size(min = 6, message = "email should have min 6 characters")
+  @Size(min = 3, message = "email should have min 6 characters")
   private String email;
   
   @Column(name = "password", nullable = false)
