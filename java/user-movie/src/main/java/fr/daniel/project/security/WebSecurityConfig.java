@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
 import org.springframework.security.oauth2.jwt.JwtEncoder;
@@ -50,6 +51,9 @@ public class WebSecurityConfig
       .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
       .and();
     
+    http
+      .logout(logout -> {LogoutConfigurer<HttpSecurity> httpSecurityLogoutConfigurer = logout;}
+      );
     // Set unauthorized requests exception handler
     http
       .exceptionHandling((exceptions) -> exceptions
