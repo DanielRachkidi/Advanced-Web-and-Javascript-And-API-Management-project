@@ -88,8 +88,3 @@ required data agregation for frontend presentation.
 - One React application to expose the features listed in previous section
 - Bonus : setup an api gateway and authorization server
 
-## Deliverables
-- Technical documentation of the application
-- Short video that shows your application running (backend and frontend)
-- Your git repository for front and back ends
-- Bonus: production guide (how to setup in a “real” environment)
